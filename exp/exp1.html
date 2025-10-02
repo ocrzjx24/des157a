@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Experiment 1</title>
+</head>
+<body>
+    <h1>Experiment 1!</h1>
+    <h2>Open console through Inspect Element!</h2>
+    
+    <script>
+        // This program takes some input sentence from the user and reverses the individual words of the sentence while maintaining
+        // the original order of the words.
+
+
+        var sentence = prompt("Write any sentence you want.",""); // prompt user for input
+        /* add space to end of input sentence, just in case.
+        ensures that my logic for whitespace detection works all the time */
+        sentence += " ";
+        wordsArray = []; // array that allows me to reverse individual words
+        var oneWord = "";
+        // LOOP: loops thru all chars in the sentence
+        for(var i = 0; i < sentence.length; i++){ 
+            /* SELECTION: if the current char is not a space, add it to our current word.
+            else, the word is complete and can be pushed to our array.*/
+            if(sentence[i] != " "){
+                oneWord += sentence[i]
+            } else {
+                /* SEQUENCE: order matters here! we push the word we extracted first,
+                then resets oneWork AFTER so that we can go thru the whole
+                process again!*/
+                wordsArray.push(oneWord);
+                oneWord = "";
+            }
+        }
+        var reversedWords = "";
+        // LOOP: nested for loops
+        for(var i = 0; i < wordsArray.length; i++){
+            var revWord = "";
+            // INNER LOOP reverses the chars of a single word in the array
+            for(var j = wordsArray[i].length - 1; j >= 0; j--){
+                revWord += wordsArray[i][j];
+            }
+            reversedWords += revWord + " ";
+        }
+        // print everything out
+        console.log(reversedWords);
+    </script>
+</body>
+</html>
