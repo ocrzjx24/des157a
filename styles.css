@@ -2,8 +2,8 @@
     --bg: #000;
     --card-bg: #2a222f;
     --text: #fff;
-    --muted: #9ca0aa;
-    --link: #5a5c60;
+    --muted: #6f6275;
+    --link: #5e5363;
     --radius: 14px;
 }
 
@@ -52,7 +52,7 @@ html, body {
 .course {
     font-weight: 700;
     font-size: 50px;
-    color: #72757b;
+    color: var(--muted);
     margin-top: 12px;
     margin-bottom: 0;
     letter-spacing: 2px;
