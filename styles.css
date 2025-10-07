@@ -200,7 +200,7 @@ html, body {
 }
 
 .orb--5 {
-    top: 170px;
+    top: 350px;
     left: 450px;
     width: 90px;
     height: 90px;
@@ -211,10 +211,10 @@ html, body {
 
 
 .orb--6 {
-    bottom: 180px;
+    bottom: 160px;
     right: 320px;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     background: radial-gradient(circle at 30% 30%, #5f575c, #11042b);
     animation-duration: 8s;
 }
