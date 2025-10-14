@@ -22,7 +22,6 @@ html, body {
     width: 1200px;
     height: 750px;
     margin: auto;
-    margin-top: 4%;
     background: var(--bg);
     display: flex;
     flex-direction: row;
