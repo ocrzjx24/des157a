@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Experiment 2</title>
+    <style>
+        #quiz-results {
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+        .correct { color: lightgreen; }
+        .wrong { color: lightcoral; }
+    </style>
+</head>
+<body>
+    <h1>Experiment 2!</h1>
+
+    <div id="quiz-results">
+        <p id="q1"></p>
+        <p id="q2"></p>
+        <p id="q3"></p>
+    </div>
+
+    <script>
+
+        // COLOR MIXING QUIZ!
+        // Inpired by Michelle Gore's suggestion!
+        // This program asks the user what two colors constitute a third, then tells them if they're right or wrong.
+        // Three of these questions are asked. For each, if correct, there is corresponding text and text color is green.
+        // If wrong, there is a separate text with color red.
+        colorQuestions = [ // list of colors and mixing components
+            { color: "purple", components: ["red", "blue"] },
+            { color: "orange", components: ["red", "yellow"] },
+            { color: "green", components: ["blue", "yellow"] },
+            { color: "teal", components: ["blue", "green"] },
+            { color: "indigo", components: ["blue", "purple"] },
+            { color: "lime", components: ["green", "yellow"] },
+        ];
+
+        function getRandomQuestion() { // uses random math to get one of 6 possible questions
+            var index = Math.floor(Math.random() * colorQuestions.length);
+            return colorQuestions[index];
+        }
+
+        function checkAnswer(userInput, components) {
+
+            var userColors = userInput.toLowerCase().split(",").map(s => s.trim()); // split at commas and remove whitespace!
+            userColors.sort(); // have to sort to match colorQuestions item
+
+            components.sort();
+            if (userColors.length !== components.length){
+                return false;
+            }
+            for (var i = 0; i < components.length; i++) { // only compares if lengths match in the first place
+                if (userColors[i] !== components[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function runQuiz() {
+            var pIds = ["q1", "q2", "q3"];
+            for (var i = 0; i < pIds.length; i++) { // get 3 questions and prompt user
+                var pid = pIds[i];
+                var question = getRandomQuestion();
+                var answer = prompt(`Question ${i + 1}: Which colors combine to make ${question.color}? (Separate with commas)`);
+
+                var para = document.querySelector(`#${pid}`); // goes through each pid (q1, q2, q3)
+
+                if (checkAnswer(answer, question.components)) { // variable string based on right or wrong
+                    para.innerHTML = `<strong>Correct!</strong> ${question.color} is made of ${question.components.join(" + ")}`;
+                    para.setAttribute("class", "correct");
+                } else {
+                    para.innerHTML = `<strong>Wrong.</strong> ${question.color} is made of ${question.components.join(" + ")}`;
+                    para.setAttribute("class", "wrong");
+                }
+            };
+        }
+
+        runQuiz();
+    </script>
+</body>
+</html>
