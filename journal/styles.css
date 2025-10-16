@@ -25,6 +25,12 @@ header {
     flex-direction: column;
 }
 
+header a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #847a89;
+}
+
 body {
     font-family: 'Roboto Mono', monospace;
     line-height: 1.6;
