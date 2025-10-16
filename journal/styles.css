@@ -1,10 +1,28 @@
 h1, p {
-    color: #6f6275;
+    color: #847a89;
+}
+
+#journal {
+    font-size: 100px;
+    line-height: 80px;
 }
 
 #subtitle {
-    padding-top: -2em;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -6%;
     margin-bottom: 2em;  
+}
+
+#name {
+    margin-top: 50%;
+    font-size: 16px;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -59,6 +77,10 @@ a {
 a:hover {
     color: #A0BD40;
     text-decoration: underline;
+}
+
+footer p {
+    color: #6f6275;
 }
 
 footer a {
