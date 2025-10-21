@@ -1,0 +1,152 @@
+:root {
+  --bg: #f7f6f4;
+  --card: #ffffff;
+  /* --accent: #b1cd4c; */
+  --accent: #f9884f;
+  --muted: #6b6b6b;
+  --maxw: 1100px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg), #ffffff);
+  color: #222;
+}
+
+body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 28px;
+  min-height: 100vh;
+}
+
+header {
+  max-width: var(--maxw);
+  width: 100%;
+  text-align: right;
+  margin-bottom: 18px;
+  margin-right: 3%;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 100px;
+}
+
+.intro {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+main {
+  max-width: var(--maxw);
+  width: 100%;
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(16,16,16,0.06);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.illustration img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 8px;
+  align-self: center;
+}
+
+form {
+  width: 100%;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  position: absolute;
+  left: -9999px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 12px 0 6px;
+  font-size: 0.95rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  font-size: 1rem;
+  transition: box-shadow .18s ease, transform .12s ease, border-color .12s ease;
+}
+
+input[type="text"]:focus {
+  border: 1px solid #cfcfcf;
+  outline: dashed gray;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(-1px);
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  align-items: center;
+}
+
+input[type="submit"], input[type="reset"] {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+  transform: translateY(-2px);
+}
+
+footer {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 16px;
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+@media (min-width: 900px) {
+  .card {
+    flex-direction: row;
+  }
+  .illustration img {
+    width: 360px;
+  }
+}

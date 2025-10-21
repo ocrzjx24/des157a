@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jason Xie - Mad Libs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>MAD LIBS</h1>
+        <p class="intro">Recipe Edition</p>
+        <img src="images/skillet.png" alt="A hand-drawn skillet illustration" width="360">
+    </header>
+
+    <main>
+        
+        <section class="card">
+
+        <form id="madlib-form" novalidate>
+            <fieldset>
+            <legend>Let's make a tasty meal~</legend>
+
+            <label for="person">Person (possessive)</label>
+            <input type="text" id="person" required placeholder="e.g. John's">
+
+            <label for="adjective1">Adjective</label>
+            <input type="text" id="adjective1" required placeholder="e.g. crunchy">
+
+            <label for="noun1">Noun</label>
+            <input type="text" id="noun1" required placeholder="e.g. salad">
+
+            <label for="clothing">Article of clothing</label>
+            <input type="text" id="clothing" required placeholder="e.g. apron">
+
+            <label for="verb1">Verb</label>
+            <input type="text" id="verb1" required placeholder="e.g. chop">
+
+            <label for="noun2">Noun</label>
+            <input type="text" id="noun2" required placeholder="e.g. carrot">
+
+            <label for="number">Duration of Time</label>
+            <input type="text" id="number" required placeholder="e.g. 10 minutes">
+
+            <label for="adjective2">Adjective</label>
+            <input type="text" id="adjective2" required placeholder="e.g. soft">
+
+            <label for="measurement">Measurement</label>
+            <input type="text" id="measurement" required placeholder="e.g. 2 cups">
+
+            <label for="noun3">Noun</label>
+            <input type="text" id="noun3" required placeholder="e.g. sugar">
+
+            <label for="adverb1">Adverb</label>
+            <input type="text" id="adverb1" required placeholder="e.g. slowly">
+
+            <label for="adjective3">Adjective</label>
+            <input type="text" id="adjective3" required placeholder="e.g. delicious">
+
+            <label for="verb2">Verb</label>
+            <input type="text" id="verb2" required placeholder="e.g. serve">
+
+            <!-- split into several pages soon -->
+            <div class="form-actions">
+                <input type="submit" value="Let's go!">
+                <input type="reset" value="Reset">
+            </div>
+            </fieldset>
+        </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            © Jason Xie, 2025 |
+            <a href="mailto:&#106;&#097;&#115;&#111;&#110;&#121;&#104;&#120;&#105;&#101;&#046;&#050;&#052;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Email</a>
+        </p>
+    </footer>
+</body>
+</html>
