@@ -1,13 +1,13 @@
 :root {
   --bg: #f7f6f4;
   --card: #ffffff;
-  --accent: #f9884f;
+  --accent: #b1cd4c;
+  /* --accent: #f9884f; */
   --muted: #6b6b6b;
   --maxw: 1000px;
-  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto Mono', 'Helvetica Neue', sans-serif;
 }
 
-/* ===== BASE ===== */
 * {
   box-sizing: border-box;
 }
@@ -23,26 +23,43 @@ body {
   padding: 28px;
 }
 
-/* ===== HEADER ===== */
 header {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: var(--maxw);
   width: 100%;
+  text-align: left;
+  gap: 20px; 
 }
 
-h1 {
+header img {
+  max-width: 320px;
+  height: auto;
+}
+
+header h1 {
   margin: 0;
   font-weight: 700;
   color: var(--accent);
   font-size: 96px;
+  line-height: 1;
 }
 
-.intro {
+header .intro {
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 6px;
+  font-size: 1.2rem;
+  text-align: right;
 }
 
-/* ===== MAIN CONTENT ===== */
+header div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
 main {
   max-width: var(--maxw);
   width: 100%;
@@ -56,7 +73,6 @@ main {
   margin-top: 24px;
 }
 
-/* ===== FORM ===== */
 fieldset {
   border: none;
   padding: 0;
@@ -84,7 +100,6 @@ input[type="text"]:focus {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* BUTTONS */
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -112,7 +127,6 @@ input[type="reset"]:hover {
   transform: translateY(-2px);
 }
 
-/* ===== MULTI-PAGE FORM ===== */
 .form-page {
   display: none;
 }
@@ -121,7 +135,6 @@ input[type="reset"]:hover {
   display: block;
 }
 
-/* ===== POPUP ===== */
 .hidden {
   visibility: hidden;
   opacity: 0;
@@ -163,34 +176,40 @@ input[type="reset"]:hover {
 }
 
 .close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+  padding: 0; 
+  line-height: 1;
+
   border: none;
   background: var(--accent);
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  width: 34px;
-  height: 34px;
   border-radius: 50%;
   position: absolute;
-  right: 24px;
-  top: 20px;
+  right: 20px;
+  top: 18px;
   cursor: pointer;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  transition: transform 0.15s ease;
 }
 
 .close-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* MADLIB TEXT */
+
 #madlib-output {
   margin-top: 20px;
   line-height: 1.7;
   font-size: 1.05rem;
 }
 
-/* ===== BLUR ===== */
 #page-blur {
   position: fixed;
   inset: 0;
@@ -204,7 +223,6 @@ input[type="reset"]:hover {
   backdrop-filter: blur(6px);
 }
 
-/* ===== FOOTER ===== */
 footer {
   color: var(--muted);
   font-size: 0.9rem;

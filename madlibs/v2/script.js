@@ -10,7 +10,7 @@
     const closeBtn = document.querySelector('.close-btn');
     let currentPage = 1;
 
-    // PAGE NAVIGATION
+    // page nav
     const nextBtn = document.querySelector('.next-btn');
     const prevBtn = document.querySelector('.prev-btn');
 
@@ -33,7 +33,7 @@
         currentPage = pageNum;
     }
 
-    // FORM SUBMISSION
+    // form submission
     myForm.addEventListener('submit', function(event) {
         event.preventDefault();
         processFormData(formData);
@@ -92,14 +92,14 @@
         document.querySelector('#page-blur').classList.add('blur');
     }
 
-    // CLOSE POPUP
+    // close popup
     closeBtn.addEventListener('click', function(event) {
         event.preventDefault();
         popup.className = 'hidden';
         document.querySelector('#page-blur').classList.remove('blur');
     });
 
-    // ESC key closes popup
+    // also ensure esc key can close popup
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             popup.className = 'hidden';

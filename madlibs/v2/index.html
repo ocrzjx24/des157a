@@ -6,7 +6,7 @@
     <title>Jason Xie - Mad Libs</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
@@ -14,9 +14,13 @@
     <div id="page-blur"></div>
 
     <header>
-        <h1>MAD LIBS</h1>
-        <p class="intro">Recipe Edition</p>
+        <img src="images/doodle-cat.png" alt="cat chef!" width="360">
+        <div>
+            <h1>MAD LIBS</h1>
+            <p class="intro">Recipe Edition</p>
+        </div>
     </header>
+
 
     <main>
         <section class="card">
@@ -24,8 +28,6 @@
             <!-- PAGE 1 -->
             <div class="form-page active" data-page="1">
             <fieldset>
-                <legend>Page 1</legend>
-
                 <label for="person">Person (possessive)</label>
                 <input type="text" id="person" required placeholder="e.g. Jason's">
 
@@ -53,8 +55,6 @@
             <!-- PAGE 2 -->
             <div class="form-page" data-page="2">
             <fieldset>
-                <legend>Page 2</legend>
-
                 <label for="number">Duration of Time</label>
                 <input type="text" id="number" required placeholder="e.g. 10 minutes">
 
