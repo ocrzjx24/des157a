@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jason Xie - Mad Libs</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="page-blur"></div>
+
+    <header>
+        <h1>MAD LIBS</h1>
+        <p class="intro">Recipe Edition</p>
+    </header>
+
+    <main>
+        <section class="card">
+        <form id="madlib-form">
+            <!-- PAGE 1 -->
+            <div class="form-page active" data-page="1">
+            <fieldset>
+                <legend>Page 1</legend>
+
+                <label for="person">Person (possessive)</label>
+                <input type="text" id="person" required placeholder="e.g. Jason's">
+
+                <label for="adjective1">Adjective</label>
+                <input type="text" id="adjective1" required placeholder="e.g. happy">
+
+                <label for="noun1">Noun</label>
+                <input type="text" id="noun1" required placeholder="e.g. apple">
+
+                <label for="clothing">Article of clothing</label>
+                <input type="text" id="clothing" required placeholder="e.g. a hat">
+
+                <label for="verb1">Verb</label>
+                <input type="text" id="verb1" required placeholder="e.g. punch">
+                
+                <label for="noun2">Noun</label>
+                <input type="text" id="noun2" required placeholder="e.g. carrot">
+
+                <div class="form-actions">
+                <button type="button" class="next-btn">Next →</button>
+                </div>
+            </fieldset>
+            </div>
+
+            <!-- PAGE 2 -->
+            <div class="form-page" data-page="2">
+            <fieldset>
+                <legend>Page 2</legend>
+
+                <label for="number">Duration of Time</label>
+                <input type="text" id="number" required placeholder="e.g. 10 minutes">
+
+                <label for="adjective2">Adjective</label>
+                <input type="text" id="adjective2" required placeholder="e.g. sad">
+
+                <label for="measurement">Measurement</label>
+                <input type="text" id="measurement" required placeholder="e.g. 2 cups">
+
+                <label for="noun3">Noun</label>
+                <input type="text" id="noun3" required placeholder="e.g. potato">
+
+                <label for="adverb1">Adverb</label>
+                <input type="text" id="adverb1" required placeholder="e.g. slowly">
+
+                <label for="adjective3">Adjective</label>
+                <input type="text" id="adjective3" required placeholder="e.g. delicious">
+
+                <label for="verb2">Verb</label>
+                <input type="text" id="verb2" required placeholder="e.g. throw">
+
+                <div class="form-actions">
+                <button type="button" class="prev-btn">← Back</button>
+                <input type="submit" value="Let's go!">
+                <input type="reset" value="Reset">
+                </div>
+            </fieldset>
+            </div>
+        </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+        © Jason Xie, 2025 |
+        <a href="mailto:&#106;&#097;&#115;&#111;&#110;&#121;&#104;&#120;&#105;&#101;&#046;&#050;&#052;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;">Email</a>
+        </p>
+    </footer>
+
+    <!-- POPUP -->
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+        <button class="close-btn">✕</button>
+        <article id="madlib-output"></article>
+        </div>
+    </div>
+</body>
+</html>
