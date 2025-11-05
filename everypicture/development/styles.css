@@ -1,0 +1,13 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.6;
+    font-size: 1.1em;  
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 2rem;
+    background: #141017;
+}
+
+p {
+    color: #847a89;
+}
