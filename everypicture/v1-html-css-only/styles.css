@@ -2,12 +2,68 @@ body {
     font-family: 'Roboto Mono', monospace;
     line-height: 1.6;
     font-size: 1.1em;  
-    max-width: 800px; 
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 2rem;
     background: #141017;
+    color: #847a89;
 }
 
-p {
-    color: #847a89;
+h1, h2, h3 {
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.gallery {
+    margin-top: 2.5rem;
+}
+
+.gallery-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #1f1924;
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:nth-child(even) {
+    flex-direction: row-reverse;
+    background: #231c2a;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+.gallery-item img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+}
+
+.caption {
+    flex: 1;
+    text-align: center;
+}
+
+.caption h3 {
+    color: #e5def0;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #D6D9DC;
+    outline: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+                0 6px 20px rgba(0, 0, 0, 0.19);
 }
