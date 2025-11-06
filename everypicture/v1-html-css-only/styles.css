@@ -5,8 +5,8 @@ body {
     max-width: 1000px; 
     margin: 0 auto;
     padding: 2rem;
-    background: #141017;
-    color: #847a89;
+    background: #1c1c1c;
+    color: #8c8c8c;
 }
 
 h1, h2, h3 {
@@ -23,7 +23,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     gap: 2rem;
-    background: #1f1924;
+    background: #373737;
     border-radius: 14px;
     padding: 1.5rem;
     margin-top: 2rem;
