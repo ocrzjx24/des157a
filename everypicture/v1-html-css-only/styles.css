@@ -32,7 +32,7 @@ h1, h2, h3 {
 
 .gallery-item:nth-child(even) {
     flex-direction: row-reverse;
-    background: #231c2a;
+    background: #373737;
 }
 
 .gallery-item:hover {
