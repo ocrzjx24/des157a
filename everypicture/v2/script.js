@@ -13,14 +13,17 @@
     var rect, bgDiv = null, fadeTimeout = null;
     var currentIndex = 0, tutorialDismissed = false;
 
-    // image array (bw and color vars)
+    // image array (bw and color vars + captions for each img)
     var images = [
-        { bw: 'images/brotherep.jpg', color: 'images/brotherep-color.jpg' },
-        { bw: 'images/bigcliffson.jpg', color: 'images/bigcliffson-color.jpg' },
-        { bw: 'images/alandvcx.jpg', color: 'images/alandvcx-color.jpg' },
-        { bw: 'images/dragonseye.jpg', color: 'images/dragonseye-color.jpg' },
-        { bw: 'images/walker.jpg', color: 'images/walker-color.jpg' }
+        { bw: 'images/brotherep.jpg', color: 'images/brotherep-color.jpg', caption: "Someone who can mean the difference between life and death. Maybe both figuratively and literally. Value them." },
+        { bw: 'images/bigcliffson.jpg', color: 'images/bigcliffson-color.jpg', caption: "Soles pressed against stone, grounded to the earth. Salt fluttering through the wind, into a void of nothing."},
+        { bw: 'images/alandvcx.jpg', color: 'images/alandvcx-color.jpg', caption: "Light filters through every action. At times we search but cannot find; at times we obscure our eyes and still see all the same."},
+        { bw: 'images/dragonseye.jpg', color: 'images/dragonseye-color.jpg', caption: "Some doors only appear once you start breathing fire. Savor the warmth in your lungs."},
+        { bw: 'images/walker.jpg', color: 'images/walker-color.jpg', caption: "The road grows with you, one step at a time. It does not exist until you set your foot down."}
     ];
+
+    // image captions / flavor text
+    var caption = document.querySelector('#text');
 
     // update tilt and bg pos
     // inspired by code found online
@@ -72,6 +75,10 @@
             }, 600);
         }
 
+        if (caption) {
+            caption.style.opacity = '0';
+        }
+
         rect = null;
     }
 
@@ -79,6 +86,7 @@
     function nextImage() {
         currentIndex = (currentIndex + 1) % images.length;
         var next = images[currentIndex];
+        caption.textContent = next.caption;
 
         if (!tutorialDismissed && tutorial) {
             tutorial.style.opacity = '0';
@@ -106,5 +114,15 @@
     card.addEventListener('mousemove', function(e) { update(e); });
     card.addEventListener('mouseleave', reset);
     card.addEventListener('click', nextImage);
+    card.addEventListener('mouseenter', function() {
+        createBg();
+        caption.textContent = images[currentIndex].caption;
+        caption.style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', function() {
+        reset();
+        caption.style.opacity = '0';
+    });
 
 })();
