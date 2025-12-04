@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DICEDUEL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DICEDUEL</title>
 
-  <link rel="stylesheet" href="normalize.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-<header>
-  <h1>FIRST TO FIVE WINS.</h1>
-  <p>Roll the dice. Avert your eyes. Take your pick.</p>
-</header>
+    <header>
+        <h1>FIRST TO FIVE WINS.</h1>
+        <p>Roll the dice. Avert your eyes. Take your pick.</p>
+    </header>
 
-<main>
-  <section id="scoreboard" aria-live="polite">
-    <div>P1: <strong id="p1-score">0</strong></div>
-    <div>P2: <strong id="p2-score">0</strong></div>
-    <div id="round-status"></div>
-  </section>
-
-  <section id="game-area">
-    <!-- p1 area -->
-    <aside id="player1-area" class="player-area">
-      <h2>PLAYER 1</h2>
-      <div id="p1-dice-container" class="dice-column">
-        <!-- pair cards -->
-      </div>
-      <div class="controls">
-        <button id="p1-roll-btn">ROLL (Player 1)</button>
-      </div>
-    </aside>
-
-    <!-- duel slots -->
-    <section id="slots-area">
-      <h2>SLOTS</h2>
-      <div id="slots">
-        <div class="slot" data-slot="0">?</div>
-        <div class="slot" data-slot="1">?</div>
-        <div class="slot" data-slot="2">?</div>
-      </div>
+    <main>
+    <section id="scoreboard" aria-live="polite">
+        <div>P1: <strong id="p1-score">0</strong></div>
+        <div>P2: <strong id="p2-score">0</strong></div>
+        <div id="round-status"></div>
     </section>
 
-    <!-- p2 area -->
-    <aside id="player2-area" class="player-area">
-      <h2>PLAYER 2</h2>
-      <div id="p2-dice-container" class="dice-column">
-        <!-- pair cards -->
-      </div>
-      <div class="controls">
-        <button id="p2-roll-btn" disabled>ROLL (Player 2)</button>
-      </div>
-    </aside>
-  </section>
+        <section id="game-area">
+            <!-- p1 area -->
+            <aside id="player1-area" class="player-area">
+                <h2>PLAYER 1</h2>
+                <div id="p1-dice-container" class="dice-column">
+                    <!-- pair cards -->
+                </div>
+                <div class="controls">
+                    <button id="p1-roll-btn">ROLL (Player 1)</button>
+                </div>
+            </aside>
 
-  <section id="game-log" aria-live="polite">
-    <small id="log-line"></small>
-  </section>
-</main>
+            <!-- duel slots -->
+            <section id="slots-area">
+                <h2>SLOTS</h2>
+                <div id="slots">
+                    <div class="slot" data-slot="0">?</div>
+                    <div class="slot" data-slot="1">?</div>
+                    <div class="slot" data-slot="2">?</div>
+                </div>
+            </section>
 
-<footer>
-  <a href="sources.html">sources</a>
-</footer>
+            <!-- p2 area -->
+            <aside id="player2-area" class="player-area">
+                <h2>PLAYER 2</h2>
+                <div id="p2-dice-container" class="dice-column">
+                    <!-- pair cards -->
+                </div>
+                <div class="controls">
+                    <button id="p2-roll-btn" disabled>ROLL (Player 2)</button>
+                </div>
+            </aside>
+        </section>
+
+        <section id="game-log">
+            <small id="log-line"></small>
+        </section>
+    </main>
+
+    <footer>
+        <a href="sources.html">sources</a>
+    </footer>
 </body>
 </html>

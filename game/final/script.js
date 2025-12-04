@@ -2,35 +2,38 @@
     "use strict";
     console.log("reading JS");
 
-    // game data
+    // GAME DATA
     const gameData = {
-        currentPlayer: 1,
-        p1Slots: [null, null, null],
+        currentPlayer: 1, // whose turn is it
+        p1Slots: [null, null, null], // chosen slot values
         p2Slots: [null, null, null],
-        rolledPairs: [],
-        selectedPair: null,
-        p1Score: 0,
+        rolledPairs: [], // currently rolled pairs to select
+        selectedPair: null, // curr selected pair
+        p1Score: 0, // scores
         p2Score: 0,
-        winTarget: 5,
-        rolledThisRound: { 1: false, 2: false }
+        winTarget: 5, // score needed to win
+        rolledThisRound: { 1: false, 2: false } // if player has rolled yet
     };
 
     // DOM elements
-    const p1DiceContainer = document.querySelector("#p1-dice-container");
+    const p1DiceContainer = document.querySelector("#p1-dice-container"); 
     const p2DiceContainer = document.querySelector("#p2-dice-container");
     const p1RollBtn = document.querySelector("#p1-roll-btn");
     const p2RollBtn = document.querySelector("#p2-roll-btn");
-    const slotsEls = document.querySelectorAll(".slot");
-    const logLine = document.querySelector("#log-line");
+    const slotsEls = document.querySelectorAll(".slot"); // slots for placing dice
+    const logLine = document.querySelector("#log-line"); // log line at bottom of page
     const roundStatus = document.querySelector("#round-status");
     const p1ScoreEl = document.querySelector("#p1-score");
     const p2ScoreEl = document.querySelector("#p2-score");
 
     // utils
+
+    // roll single 6 sided die
     function rollDie(){
         return Math.floor(Math.random() * 6) + 1;
     }
 
+    // each player rolls 3 pairs
     function rollThreePairs(){
         const result = [];
         for(let i=0; i<3; i++){
@@ -47,9 +50,12 @@
         return result;
     }
 
+    // modify log line
     function setLog(message){
         logLine.textContent = message;
     }
+
+    // rest of these are self explanatory
 
     function setRoundStatus(message){
         roundStatus.textContent = message;
@@ -68,7 +74,7 @@
     }
 
     function resetSlotStyling(){
-        for(let i=0; i<slotsEls.length; i++){
+        for(let i=0; i<slotsEls.length; i++){ // remove any styling for the slots at end of round
             slotsEls[i].classList.remove("revealed");
             slotsEls[i].classList.remove("occupied-p1");
             slotsEls[i].classList.remove("occupied-p2");
@@ -78,8 +84,9 @@
         }
     }
 
-    // dice pairs
+    // dice pairs rendering
     function renderPairs(){
+        // determine which container belongs to curr player
         let container;
         let other;
 
@@ -91,10 +98,11 @@
             other = p1DiceContainer;
         }
 
+        // clear old dice
         container.innerHTML = "";
         other.innerHTML = "";
 
-        for(let i=0; i<gameData.rolledPairs.length; i++){
+        for(let i=0; i<gameData.rolledPairs.length; i++){ // create card for each pair
             let pair = gameData.rolledPairs[i];
 
             let card = document.createElement("div");
@@ -122,7 +130,7 @@
             card.appendChild(diceCol);
             card.appendChild(sumBadge);
 
-            card.addEventListener("click", function(){
+            card.addEventListener("click", function(){ // select / deselect logic
                 let allCards = container.querySelectorAll(".pair-card");
                 for(let j=0; j<allCards.length; j++){
                     allCards[j].classList.remove("selected");
@@ -130,9 +138,9 @@
 
                 let clickedId = this.dataset.pairId;
 
-                if(gameData.selectedPair && gameData.selectedPair.id == clickedId){
+                if(gameData.selectedPair && gameData.selectedPair.id == clickedId){ // deselect if clicked alrdy
                     gameData.selectedPair = null;
-                } else {
+                } else { // select clicked
                     for(let k=0; k<gameData.rolledPairs.length; k++){
                         if(gameData.rolledPairs[k].id == clickedId){
                             gameData.selectedPair = gameData.rolledPairs[k];
@@ -146,6 +154,7 @@
         }
     }
 
+    // remove dice from rolledPairs by id
     function removePairById(id) {
         let newPairs = [];
         for (let i = 0; i < gameData.rolledPairs.length; i++) {
@@ -159,13 +168,14 @@
 
     // game flow and logic
     function playerRoll(){
-
+        // roll dice and mark player as rolled
         gameData.rolledPairs = rollThreePairs();
         gameData.rolledThisRound[gameData.currentPlayer] = true;
 
         renderPairs();
         setLog("Player " + gameData.currentPlayer + " rolled. PLACE YOUR SUMS.");
 
+        // disable buttons during placing phase
         p1RollBtn.disabled = true;
         p2RollBtn.disabled = true;
     }
@@ -183,12 +193,13 @@
             slots = gameData.p2Slots;
         }
 
-        if(slots[slotIndex] !== null){
+        if(slots[slotIndex] !== null){ // don't allow replacements
             setLog("Slot already used.");
             return;
         }
 
         slots[slotIndex] = gameData.selectedPair.sum;
+        // style update based on player turn
         if (gameData.currentPlayer === 1) {
             slotsEls[slotIndex].classList.add("occupied-p1");
         } else {
@@ -207,12 +218,12 @@
         }
 
         if(allFilled){
-            if(gameData.currentPlayer === 1){
+            if(gameData.currentPlayer === 1){ // switch to p2 if p2 hasn't played
                 gameData.currentPlayer = 2;
                 p2RollBtn.disabled = gameData.rolledThisRound[2];
                 setLog("Player 1 is done. Player 2. ROLL.");
                 clearDiceUI();
-            } else {
+            } else { // else end round and reveal all
                 p1RollBtn.disabled = true;
                 p2RollBtn.disabled = true;
                 setLog("Player 2 is done. REVEALING RESULTS.");
@@ -227,6 +238,7 @@
         let p1Wins = 0;
         let p2Wins = 0;
 
+        // compare slots values and reveals winner
         for(let i=0; i<slotsEls.length; i++){
             let p1Value = gameData.p1Slots[i];
             let p2Value = gameData.p2Slots[i];
@@ -249,6 +261,7 @@
             }
         }
 
+        // round win logic
         if(p1Wins >= 2 || (p1Wins == 1 && p2Wins == 0)){
             gameData.p1Score++;
             setRoundStatus("Player 1 wins the round (" + p1Wins + " - " + p2Wins + ")");
@@ -266,7 +279,7 @@
         setTimeout(nextRound, 2500);
     }
 
-    function nextRound(){
+    function nextRound(){ // reset everything
         gameData.p1Slots = [null, null, null];
         gameData.p2Slots = [null, null, null];
         gameData.rolledPairs = [];
@@ -287,7 +300,8 @@
         checkGameOver();
     }
 
-    function checkGameOver(){
+    // check if anyone has won already
+    function checkGameOver(){ 
         if(gameData.p1Score >= gameData.winTarget || gameData.p2Score >= gameData.winTarget){
             let winner;
             if(gameData.p1Score >= gameData.winTarget){
