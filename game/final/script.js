@@ -26,6 +26,10 @@
     const p1ScoreEl = document.querySelector("#p1-score");
     const p2ScoreEl = document.querySelector("#p2-score");
 
+    // audio files
+    const rollSound = new Audio("sounds/dice-sparkle.wav"); 
+    const winSound = new Audio("sounds/game-end.wav");  
+
     // utils
 
     // roll single 6 sided die
@@ -174,7 +178,10 @@
 
         renderPairs();
         setLog("Player " + gameData.currentPlayer + " rolled. PLACE YOUR SUMS.");
-
+        
+        rollSound.currentTime = 0; // rewind sound to start
+        rollSound.play();
+        
         // disable buttons during placing phase
         p1RollBtn.disabled = true;
         p2RollBtn.disabled = true;
@@ -312,6 +319,9 @@
 
             setRoundStatus("PLAYER " + winner + " WINS THE GAME.");
             setLog("MY JOB HERE IS DONE.");
+
+            winSound.currentTime = 0;
+            winSound.play();
 
             p1RollBtn.disabled = true;
             p2RollBtn.disabled = true;
