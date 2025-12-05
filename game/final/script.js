@@ -25,6 +25,12 @@
     const roundStatus = document.querySelector("#round-status");
     const p1ScoreEl = document.querySelector("#p1-score");
     const p2ScoreEl = document.querySelector("#p2-score");
+    const revealBtn = document.querySelector("#reveal-btn"); // round revealing btn
+    // DOM elements for instructions pop up
+    const instructionsBtn = document.querySelector("#instructions-btn");
+    const instructionsPopup = document.querySelector("#instructions-popup");
+    const closeInstructions = document.querySelector("#close-instructions");
+
 
     // audio files
     const rollSound = new Audio("sounds/dice-sparkle.wav"); 
@@ -234,7 +240,7 @@
                 p1RollBtn.disabled = true;
                 p2RollBtn.disabled = true;
                 setLog("Player 2 is done. REVEALING RESULTS.");
-                revealAndScore();
+                revealBtn.classList.remove("hidden");
             }
         } else {
             setLog("Placed value into slot " + (slotIndex + 1) + ". Place remaining pairs.");
@@ -347,6 +353,23 @@
             playerRoll();
         }
     });
+
+    // instructions pop up listeners
+
+    instructionsBtn.addEventListener("click", function() {
+        instructionsPopup.classList.remove("hidden");
+    });
+
+    closeInstructions.addEventListener("click", function() {
+        instructionsPopup.classList.add("hidden");
+    });
+
+    // reveal logic
+    revealBtn.addEventListener("click", function() {
+        revealAndScore();   
+        revealBtn.classList.add("hidden"); // hide button again
+    });
+
 
     // run the game!
     function init(){

@@ -13,7 +13,6 @@
 <body>
     <header>
         <h1>FIRST TO FIVE WINS.</h1>
-        <p>Roll the dice. Avert your eyes. Take your pick.</p>
     </header>
 
     <main>
@@ -42,7 +41,9 @@
                     <div class="slot" data-slot="0">?</div>
                     <div class="slot" data-slot="1">?</div>
                     <div class="slot" data-slot="2">?</div>
-                </div>
+                </div>            
+                <!-- REVEAL button, normally hidden -->
+                <button id="reveal-btn" class="hidden">REVEAL</button> 
             </section>
 
             <!-- p2 area -->
@@ -63,7 +64,20 @@
     </main>
 
     <footer>
-        <a href="sources.html">sources</a>
+        <a href="sources.html">SOURCES</a>
     </footer>
+
+    <!-- instructions popup -->
+    <button id="instructions-btn">INSTRUCTIONS</button>
+
+    <div id="instructions-popup" class="hidden">
+        <div id="instructions-content">
+            <p>Each round starts with PLAYER 1 going first. During their move, PLAYER 2 SHOULD AVERT THEIR EYES. PLAYER 1 will roll THREE PAIRS OF DICE, resulting in THREE SEPARATE SUMS. They take these sums and can place them into the three slots in the middle in any way they desire. Then, it's PLAYER 2's turn to do the same, and PLAYER 1 SHOULD AVERT THEIR EYES.</p>
+            <p>After this, click REVEAL to see the winner of the round. A round is won by whoever won more of the slots, and each slot is won when one player's number is GREATER THAN the other's. If they are the same, that slot is a draw -- if all slots are draws, or there's one draw and the other wins are split between the players, then there is a draw for that round.</p>
+            <p>First player to reach 5 round wins WINS THE ENTIRE GAME.</p>
+            <button id="close-instructions">CLOSE</button>
+        </div>
+    </div>
+
 </body>
 </html>
